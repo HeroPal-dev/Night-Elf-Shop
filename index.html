@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Elf Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adaptive.css">
+</head>
+<body>
+    <!-- Бургер-меню -->
+    <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/night-elf-logo.svg" alt="Night Elf Shop Logo">
+                </a>
+            </div>
+        </div>
+        <nav class="mobile-menu-nav">
+            <a href="#catalog">Каталог</a>
+            <a href="basket.html">Корзина</a>
+            <a href="#">Профиль</a>
+        </nav>
+        <div class="mobile-currency-selector">
+            <div class="currency-selector">
+                <button class="currency-button" id="mobileCurrencyBtn">
+                    <img src="images/crown-icon.svg" alt="Crown" class="crown-icon">
+                    <span class="current-currency">USD</span>
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="currency-dropdown" id="mobileCurrencyDropdown">
+                    <div class="currency-option" data-currency="USD" data-symbol="$" data-rate="1">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        USD
+                    </div>
+                    <div class="currency-option" data-currency="BYN" data-symbol="Br" data-rate="3.25">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        BYN
+                    </div>
+                    <div class="currency-option" data-currency="RUB" data-symbol="₽" data-rate="92.5">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        RUB
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-group">
+                <div class="currency-selector">
+                    <button class="currency-button" id="currencyBtn">
+                        <img src="images/crown-icon.svg" alt="Crown" class="crown-icon">
+                        <span class="current-currency">USD</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="currency-dropdown" id="currencyDropdown">
+                        <div class="currency-option" data-currency="USD" data-symbol="$" data-rate="1">
+                            <img src="images/crown-icon.svg" alt="Crown">
+                            USD
+                        </div>
+                        <div class="currency-option" data-currency="BYN" data-symbol="Br" data-rate="3.25">
+                            <img src="images/crown-icon.svg" alt="Crown">
+                            BYN
+                        </div>
+                        <div class="currency-option" data-currency="RUB" data-symbol="₽" data-rate="92.5">
+                            <img src="images/crown-icon.svg" alt="Crown">
+                            RUB
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-icon">
+                    <a href="basket.html" class="cart-link">
+                        <img src="images/cart-icon.svg" alt="Cart">
+                        <span class="cart-count" style="display: none;">0</span>
+                    </a>
+                </div>
+
+                <div class="user-section">
+                    <div class="user-icon">
+                        <img src="images/user-icon.svg" alt="User">
+                    </div>
+                    <span class="shop-name">Night Elf Shop</span>
+                </div>
+
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/night-elf-logo.svg" alt="Night Elf Shop Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Night Elf Shop</h1>
+                <p class="hero-description">Откройте для себя мир уникальных товаров</p>
+                <a href="#catalog" class="catalog-button">
+                    <span>КАТАЛОГ</span>
+                    <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="filter-container">
+                <h2 class="filter-title">ФИЛЬТРЫ</h2>
+                <div class="filter-row">
+                    <button class="filter-button active" data-genre="all"><span>Все игры</span></button>
+                    <button class="filter-button" data-genre="rpg"><span>RPG</span></button>
+                    <button class="filter-button" data-genre="strategy"><span>Стратегии</span></button>
+                    <button class="filter-button" data-genre="action"><span>Экшен</span></button>
+                    <button class="filter-button" data-genre="mmorpg"><span>MMORPG</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="products-section">
+            <div class="products-container">
+                <!-- World of Warcraft -->
+                <div class="product-card" data-genres="rpg,mmorpg" data-id="wow" data-price="20.99">
+                    <img src="images/WoW_product.png" alt="World of Warcraft" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">World of Warcraft</h3>
+                        <div class="product-price">
+                            <span class="price-value">20.99</span>
+                            <span class="currency-symbol">$</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart">В КОРЗИНУ</button>
+                </div>
+
+                <!-- StarCraft II -->
+                <div class="product-card" data-genres="strategy" data-id="sc2" data-price="15.99">
+                    <img src="images/sc2_product.jpg" alt="StarCraft II" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">StarCraft II</h3>
+                        <div class="product-price">
+                            <span class="price-value">15.99</span>
+                            <span class="currency-symbol">$</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart">В КОРЗИНУ</button>
+                </div>
+
+                <!-- Diablo IV -->
+                <div class="product-card" data-genres="rpg,action" data-id="diablo4" data-price="30.99">
+                    <img src="images/diablo4_product.jpg" alt="Diablo IV" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Diablo IV</h3>
+                        <div class="product-price">
+                            <span class="price-value">30.99</span>
+                            <span class="currency-symbol">$</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart">В КОРЗИНУ</button>
+                </div>
+
+                <!-- Overwatch 2 -->
+                <div class="product-card" data-genres="action,fps" data-id="ow2" data-price="19.99">
+                    <img src="images/ow2_product.jpeg" alt="Overwatch 2" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Overwatch 2</h3>
+                        <div class="product-price">
+                            <span class="price-value">19.99</span>
+                            <span class="currency-symbol">$</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart">В КОРЗИНУ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">PRIVACY POLICY</a>
+                <a href="#" class="footer-link">HOW IT WORKS</a>
+                <a href="#" class="footer-link">TERMS OF SERVICE</a>
+                <a href="#" class="footer-link">CONTACT US</a>
+                <a href="#" class="footer-link">REFUND POLICE</a>
+                <a href="#" class="footer-link">JOBS</a>
+            </div>
+            
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="images/skype-icon.svg" alt="Skype"></a>
+                    <a href="#" class="social-icon"><img src="images/discord-icon.svg" alt="Discord"></a>
+                    <a href="#" class="social-icon"><img src="images/whatsapp-icon.svg" alt="WhatsApp"></a>
+                    <a href="#" class="social-icon"><img src="images/telegram-icon.svg" alt="Telegram"></a>
+                    <a href="#" class="social-icon"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+                </div>
+                
+                <div class="payment-methods">
+                    <img src="images/visa-icon.svg" alt="Visa" class="payment-icon">
+                    <img src="images/mastercard-icon.svg" alt="Mastercard" class="payment-icon">
+                    <img src="images/bitcoin-icon.svg" alt="Bitcoin" class="payment-icon">
+                    <img src="images/paypal-icon.svg" alt="PayPal" class="payment-icon">
+                </div>
+                
+                <div class="trustpilot">
+                    <img src="images/trustpilot.svg" alt="Trustpilot Reviews">
+                </div>
+                
+                <div class="copyright">
+                    @Night Elf Shop
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

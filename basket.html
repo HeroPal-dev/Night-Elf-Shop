@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - Night Elf Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adaptive.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-group">
+                    <div class="currency-selector">
+                        <button class="currency-button" id="currencyBtn">
+                            <img src="images/crown-icon.svg" alt="Crown" class="crown-icon">
+                            <span class="current-currency">USD</span>
+                            <span class="arrow-icon">▼</span>
+                        </button>
+                        <div class="currency-dropdown" id="currencyDropdown">
+                            <div class="currency-option" data-currency="USD" data-symbol="$" data-rate="1">
+                                <img src="images/crown-icon.svg" alt="Crown">
+                                USD
+                            </div>
+                            <div class="currency-option" data-currency="BYN" data-symbol="Br" data-rate="3.25">
+                                <img src="images/crown-icon.svg" alt="Crown">
+                                BYN
+                            </div>
+                            <div class="currency-option" data-currency="RUB" data-symbol="₽" data-rate="92.5">
+                                <img src="images/crown-icon.svg" alt="Crown">
+                                RUB
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-icon">
+                        <a href="basket.html" class="cart-link">
+                            <img src="images/cart-icon.svg" alt="Cart">
+                        </a>
+                    </div>
+
+                    <div class="user-section">
+                        <div class="user-icon">
+                            <img src="images/user-icon.svg" alt="User">
+                        </div>
+                        <span class="shop-name">Night Elf Shop</span>
+                    </div>
+
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/night-elf-logo.svg" alt="Night Elf Shop Logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/night-elf-logo.svg" alt="Night Elf Shop Logo">
+                </a>
+            </div>
+        </div>
+        <nav class="mobile-menu-nav">
+            <a href="index.html">Каталог</a>
+            <a href="basket.html">Корзина</a>
+            <a href="#">Профиль</a>
+        </nav>
+        <div class="mobile-currency-selector">
+            <div class="currency-selector">
+                <button class="currency-button" id="mobileCurrencyBtn">
+                    <img src="images/crown-icon.svg" alt="Crown" class="crown-icon">
+                    <span class="current-currency">USD</span>
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="currency-dropdown" id="mobileCurrencyDropdown">
+                    <div class="currency-option" data-currency="USD" data-symbol="$" data-rate="1">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        USD
+                    </div>
+                    <div class="currency-option" data-currency="BYN" data-symbol="Br" data-rate="3.25">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        BYN
+                    </div>
+                    <div class="currency-option" data-currency="RUB" data-symbol="₽" data-rate="92.5">
+                        <img src="images/crown-icon.svg" alt="Crown">
+                        RUB
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="basket-content">
+        <h1>МОЙ ЗАКАЗ</h1>
+        
+        <div class="basket-container">
+            <div class="basket-items">
+                <!-- Здесь будут товары в корзине -->
+            </div>
+            
+            <div class="basket-summary">
+                <div class="summary-content">
+                    <div class="summary-title">ИТОГО</div>
+                    <div class="summary-total">111<span class="currency-symbol">$</span></div>
+                    <button class="checkout-button">ОФОРМИТЬ ЗАКАЗ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">PRIVACY POLICY</a>
+                <a href="#" class="footer-link">HOW IT WORKS</a>
+                <a href="#" class="footer-link">TERMS OF SERVICE</a>
+                <a href="#" class="footer-link">CONTACT US</a>
+                <a href="#" class="footer-link">REFUND POLICE</a>
+                <a href="#" class="footer-link">JOBS</a>
+            </div>
+            
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="images/skype-icon.svg" alt="Skype"></a>
+                    <a href="#" class="social-icon"><img src="images/discord-icon.svg" alt="Discord"></a>
+                    <a href="#" class="social-icon"><img src="images/whatsapp-icon.svg" alt="WhatsApp"></a>
+                    <a href="#" class="social-icon"><img src="images/telegram-icon.svg" alt="Telegram"></a>
+                    <a href="#" class="social-icon"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="images/facebook-icon.svg" alt="Facebook"></a>
+                </div>
+                
+                <div class="payment-methods">
+                    <img src="images/visa-icon.svg" alt="Visa" class="payment-icon">
+                    <img src="images/mastercard-icon.svg" alt="Mastercard" class="payment-icon">
+                    <img src="images/bitcoin-icon.svg" alt="Bitcoin" class="payment-icon">
+                    <img src="images/paypal-icon.svg" alt="PayPal" class="payment-icon">
+                </div>
+                
+                <div class="trustpilot">
+                    <img src="images/trustpilot.svg" alt="Trustpilot Reviews">
+                </div>
+                
+                <div class="copyright">
+                    @Night Elf Shop
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,250 @@
+{
+    "products": {
+        "wow": {
+            "id": "wow",
+            "title": "World of Warcraft: Dragonflight",
+            "price": 49.99,
+            "tags": ["MMORPG", "RPG", "Fantasy"],
+            "genres": ["MMORPG", "RPG", "Fantasy"],
+            "releaseDate": "28 ноября 2022",
+            "publisher": "Blizzard Entertainment",
+            "developer": "Blizzard Entertainment",
+            "languages": {
+                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"],
+                "voice": ["English", "Русский", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Создайте или войдите в аккаунт Battle.net",
+                    "Перейдите в раздел 'Игры и подписки'",
+                    "Нажмите 'Активировать код'",
+                    "Введите полученный код",
+                    "Следуйте инструкциям на экране"
+                ],
+                "note": "После активации игра будет доступна в вашей библиотеке Battle.net"
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "OS": "Windows 10 64-bit",
+                    "Processor": "Intel Core i5-3450 или AMD FX 8300",
+                    "Memory": "8 GB RAM",
+                    "Graphics": "NVIDIA GeForce GTX 760 2GB или AMD Radeon RX 560 2GB",
+                    "Storage": "100 GB свободного места",
+                    "Network": "Интернет-соединение"
+                },
+                "recommended": {
+                    "OS": "Windows 10 64-bit",
+                    "Processor": "Intel Core i7-6700K или AMD Ryzen 7 2700X",
+                    "Memory": "16 GB RAM",
+                    "Graphics": "NVIDIA GeForce GTX 1080 8GB или AMD Radeon RX Vega 64 8GB",
+                    "Storage": "100 GB свободного места",
+                    "Network": "Интернет-соединение"
+                }
+            },
+            "description": {
+                "overview": "World of Warcraft: Dragonflight - это новое дополнение к легендарной MMORPG, которое перенесет игроков в загадочный архипелаг Драконьих островов. Исследуйте древние земли, где драконы строили свою цивилизацию, и раскройте тайны, которые были скрыты веками.",
+                "features": [
+                    "Новый континент Драконьи острова с уникальными локациями",
+                    "Новая раса драктиров и класс эволюционера",
+                    "Система полета на драконах с кастомизацией",
+                    "Обновленная система профессий",
+                    "Новые подземелья и рейды",
+                    "Улучшенный интерфейс и система талантов"
+                ]
+            },
+            "images": [
+                "images/wow_product.png",
+                "images/WoW_boomkin.jpg",
+                "images/WoW_Screenshots.jpg",
+                "images/infernal_at_stormwind_beta_close3.jpg"
+            ]
+        },
+        "sc2": {
+            "id": "sc2",
+            "title": "StarCraft II: Legacy of the Void",
+            "price": 39.99,
+            "tags": ["Стратегия", "Классика", "RTS"],
+            "genres": ["RTS", "Strategy", "Sci-Fi"],
+            "releaseDate": "10 ноября 2015",
+            "publisher": "Blizzard Entertainment",
+            "developer": "Blizzard Entertainment",
+            "languages": {
+                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"],
+                "voice": ["English", "Русский", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Создайте или войдите в аккаунт Battle.net",
+                    "Перейдите в раздел 'Игры и подписки'",
+                    "Нажмите 'Активировать код'",
+                    "Введите полученный код",
+                    "Следуйте инструкциям на экране"
+                ],
+                "note": "После активации игра будет доступна в вашей библиотеке Battle.net"
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "OS": "Windows 10 64-bit",
+                    "Processor": "Intel Core i3 или AMD Ryzen 3",
+                    "Memory": "4 GB RAM",
+                    "Graphics": "NVIDIA GeForce GT 640 или AMD Radeon HD 5670",
+                    "Storage": "30 GB свободного места",
+                    "Network": "Интернет-соединение"
+                },
+                "recommended": {
+                    "OS": "Windows 10 64-bit",
+                    "Processor": "Intel Core i5 или AMD Ryzen 5",
+                    "Memory": "8 GB RAM",
+                    "Graphics": "NVIDIA GeForce GTX 660 или AMD Radeon HD 7850",
+                    "Storage": "30 GB свободного места",
+                    "Network": "Интернет-соединение"
+                }
+            },
+            "description": {
+                "overview": "StarCraft II: Legacy of the Void - это эпическое завершение трилогии StarCraft II. Возьмите под контроль протоссов в их последней попытке спасти галактику от древнего зла.",
+                "features": [
+                    "Новая кампания за протоссов",
+                    "Улучшенная система мультиплеера",
+                    "Новые юниты и способности",
+                    "Улучшенный редактор карт",
+                    "Кооперативный режим",
+                    "Система достижений"
+                ]
+            },
+            "images": [
+                "images/sc2_legacy.png",
+                "images/sc2_screenshot1.jpg",
+                "images/sc2_screenshot2.jpg",
+                "images/sc2_screenshot3.jpg"
+            ]
+        },
+        "diablo4": {
+            "id": "diablo4",
+            "title": "Diablo IV",
+            "price": "30.99",
+            "tags": ["RPG", "Action RPG", "Dungeon Crawler", "Dark Fantasy"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "6 июня 2023",
+            "publisher": "Blizzard Entertainment",
+            "developer": "Blizzard Entertainment",
+            "languages": {
+                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"],
+                "voice": ["English", "Deutsch", "Español", "Français", "Italiano", "Polski", "日本語", "한국어"]
+            },
+            "description": {
+                "overview": "Diablo IV - это новая глава в легендарной серии Action RPG. Исследуйте огромный открытый мир Санктуарии, сражайтесь с полчищами демонов и собирайте легендарную добычу в бесконечной борьбе между Высшими Небесами и Пылающими Преисподними.",
+                "features": [
+                    "Огромный открытый мир с динамической погодой и циклом дня и ночи",
+                    "Пять уникальных классов: Варвар, Чародейка, Друид, Разбойница и Некромант",
+                    "Глубокая система кастомизации персонажа и экипировки",
+                    "Мрачная и захватывающая история в лучших традициях серии",
+                    "Кроссплатформенная игра и прогрессия",
+                    "Сезонный контент и регулярные обновления"
+                ]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "OS": "Windows 10 64-bit",
+                    "CPU": "Intel Core i5-2500K или AMD FX-8100",
+                    "RAM": "8 GB",
+                    "GPU": "NVIDIA GeForce GTX 660 или AMD Radeon R9 280",
+                    "DirectX": "Version 12",
+                    "Storage": "90 GB доступного места"
+                },
+                "recommended": {
+                    "OS": "Windows 10 64-bit",
+                    "CPU": "Intel Core i5-4670K или AMD R3-1300X",
+                    "RAM": "16 GB",
+                    "GPU": "NVIDIA GeForce GTX 970 или AMD Radeon RX 470",
+                    "DirectX": "Version 12",
+                    "Storage": "90 GB доступного места SSD"
+                }
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Скачайте и установите Battle.net с официального сайта",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на иконку Blizzard в верхнем меню",
+                    "Выберите 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Для игры требуется постоянное подключение к интернету"
+            },
+            "images": [
+                "images/diablo4_product.jpg",
+                "images/diablo4_screenshot1.jpg",
+                "images/diablo4_screenshot2.jpg",
+                "images/diablo4_screenshot3.jpg"
+            ]
+        },
+        "ow2": {
+            "id": "ow2",
+            "title": "Overwatch 2",
+            "price": "19.99",
+            "tags": ["Шутер", "Командная игра", "Герои", "Киберспорт"],
+            "genres": ["Action", "FPS"],
+            "releaseDate": "4 октября 2022",
+            "publisher": "Blizzard Entertainment",
+            "developer": "Blizzard Entertainment",
+            "languages": {
+                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"],
+                "voice": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"]
+            },
+            "description": {
+                "overview": "Overwatch 2 - это следующая эволюция отмеченного наградами командного шутера от Blizzard Entertainment. Сражайтесь на полях боя будущего в составе команды легендарных героев и станьте частью новой эры конфликта.",
+                "features": [
+                    "Новый формат 5 на 5 для более динамичных сражений",
+                    "Обновленные герои с новыми способностями и пассивными эффектами",
+                    "Режим PvE с сюжетными миссиями и героическими приключениями",
+                    "Новые карты, режимы игры и косметические предметы",
+                    "Кроссплатформенная игра и общий прогресс",
+                    "Регулярные обновления и сезонный контент"
+                ]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "OS": "Windows 10 64-bit",
+                    "CPU": "Intel Core i3 или AMD Phenom X3 8650",
+                    "RAM": "6 GB",
+                    "GPU": "NVIDIA GeForce GTX 600 series или AMD Radeon HD 7000 series",
+                    "DirectX": "Version 11",
+                    "Storage": "50 GB доступного места"
+                },
+                "recommended": {
+                    "OS": "Windows 10 64-bit",
+                    "CPU": "Intel Core i7 или AMD Ryzen 5",
+                    "RAM": "8 GB",
+                    "GPU": "NVIDIA GeForce GTX 1060 или AMD Radeon R9 380",
+                    "DirectX": "Version 11",
+                    "Storage": "50 GB доступного места SSD"
+                }
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Скачайте и установите Battle.net с официального сайта",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на иконку Blizzard в верхнем меню",
+                    "Выберите 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Для игры требуется постоянное подключение к интернету"
+            },
+            "images": [
+                "images/ow2_product.jpeg",
+                "images/ow2_screenshot1.jpg",
+                "images/ow2_screenshot2.jpg",
+                "images/ow2_screenshot3.jpg"
+            ]
+        }
+    }
+} 
