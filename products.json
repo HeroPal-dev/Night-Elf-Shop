@@ -2,49 +2,35 @@
     "products": {
         "wow": {
             "id": "wow",
-            "title": "World of Warcraft: Dragonflight",
-            "price": 49.99,
+            "title": "World of Warcraft",
+            "price": 20.99,
             "tags": ["MMORPG", "RPG", "Fantasy"],
             "genres": ["MMORPG", "RPG", "Fantasy"],
-            "releaseDate": "28 ноября 2022",
+            "releaseDate": "2004-11-23",
             "publisher": "Blizzard Entertainment",
             "developer": "Blizzard Entertainment",
             "languages": {
-                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"],
-                "voice": ["English", "Русский", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"]
-            },
-            "activation": {
-                "region": "Весь мир",
-                "service": "Battle.net",
-                "instructions": [
-                    "Создайте или войдите в аккаунт Battle.net",
-                    "Перейдите в раздел 'Игры и подписки'",
-                    "Нажмите 'Активировать код'",
-                    "Введите полученный код",
-                    "Следуйте инструкциям на экране"
-                ],
-                "note": "После активации игра будет доступна в вашей библиотеке Battle.net"
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский"],
+                "voice": ["Английский"]
             },
             "systemRequirements": {
                 "minimum": {
-                    "OS": "Windows 10 64-bit",
-                    "Processor": "Intel Core i5-3450 или AMD FX 8300",
-                    "Memory": "8 GB RAM",
-                    "Graphics": "NVIDIA GeForce GTX 760 2GB или AMD Radeon RX 560 2GB",
-                    "Storage": "100 GB свободного места",
-                    "Network": "Интернет-соединение"
+                    "os": "Windows 7 64-bit",
+                    "processor": "Intel Core i5-760 or AMD FX-8100",
+                    "memory": "4 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 560 2GB or AMD Radeon HD 7850 2GB",
+                    "storage": "70 GB"
                 },
                 "recommended": {
-                    "OS": "Windows 10 64-bit",
-                    "Processor": "Intel Core i7-6700K или AMD Ryzen 7 2700X",
-                    "Memory": "16 GB RAM",
-                    "Graphics": "NVIDIA GeForce GTX 1080 8GB или AMD Radeon RX Vega 64 8GB",
-                    "Storage": "100 GB свободного места",
-                    "Network": "Интернет-соединение"
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7-6700K or AMD Ryzen 7 2700X",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1080 or AMD Radeon RX Vega 64",
+                    "storage": "70 GB SSD"
                 }
             },
             "description": {
-                "overview": "World of Warcraft: Dragonflight - это новое дополнение к легендарной MMORPG, которое перенесет игроков в загадочный архипелаг Драконьих островов. Исследуйте древние земли, где драконы строили свою цивилизацию, и раскройте тайны, которые были скрыты веками.",
+                "overview": "World of Warcraft - это легендарная MMORPG, где вы отправитесь в эпическое приключение по фэнтезийному миру Азерота.",
                 "features": [
                     "Новый континент Драконьи острова с уникальными локациями",
                     "Новая раса драктиров и класс эволюционера",
@@ -54,25 +40,64 @@
                     "Улучшенный интерфейс и система талантов"
                 ]
             },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Создайте или войдите в аккаунт Battle.net",
+                    "Перейдите в раздел 'Игры и подписки'",
+                    "Нажмите 'Активировать код'",
+                    "Введите полученный код",
+                    "Следуйте инструкциям на экране"
+                ],
+                "note": "После активации игра будет доступна в вашей библиотеке Battle.net"
+            },
             "images": [
-                "images/wow_product.png",
-                "images/WoW_boomkin.jpg",
-                "images/WoW_Screenshots.jpg",
-                "images/infernal_at_stormwind_beta_close3.jpg"
+                "images/WoW_product.png",
+                "images/wow_screenshot1.jpg",
+                "images/wow_screenshot2.jpg",
+                "images/wow_screenshot3.jpg"
             ]
         },
         "sc2": {
             "id": "sc2",
-            "title": "StarCraft II: Legacy of the Void",
-            "price": 39.99,
+            "title": "StarCraft II",
+            "price": 15.99,
             "tags": ["Стратегия", "Классика", "RTS"],
-            "genres": ["RTS", "Strategy", "Sci-Fi"],
-            "releaseDate": "10 ноября 2015",
+            "genres": ["Стратегия", "RTS"],
+            "releaseDate": "2010-07-27",
             "publisher": "Blizzard Entertainment",
             "developer": "Blizzard Entertainment",
             "languages": {
-                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"],
-                "voice": ["English", "Русский", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "한국어", "简体中文", "繁體中文", "日本語"]
+                "interface": ["Русский", "Английский", "Корейский"],
+                "voice": ["Английский", "Корейский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 7 64-bit",
+                    "processor": "Intel Core 2 Duo or AMD Athlon 64 X2 5600+",
+                    "memory": "2 GB RAM",
+                    "graphics": "NVIDIA GeForce 7600 GT or ATI Radeon HD 2600 XT",
+                    "storage": "30 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5 or AMD FX Series",
+                    "memory": "4 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 650 or AMD Radeon HD 7790",
+                    "storage": "30 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "StarCraft II - это стратегия в реальном времени, где три расы сражаются за господство в галактике.",
+                "features": [
+                    "Новая кампания за протоссов",
+                    "Улучшенная система мультиплеера",
+                    "Новые юниты и способности",
+                    "Улучшенный редактор карт",
+                    "Кооперативный режим",
+                    "Система достижений"
+                ]
             },
             "activation": {
                 "region": "Весь мир",
@@ -86,37 +111,8 @@
                 ],
                 "note": "После активации игра будет доступна в вашей библиотеке Battle.net"
             },
-            "systemRequirements": {
-                "minimum": {
-                    "OS": "Windows 10 64-bit",
-                    "Processor": "Intel Core i3 или AMD Ryzen 3",
-                    "Memory": "4 GB RAM",
-                    "Graphics": "NVIDIA GeForce GT 640 или AMD Radeon HD 5670",
-                    "Storage": "30 GB свободного места",
-                    "Network": "Интернет-соединение"
-                },
-                "recommended": {
-                    "OS": "Windows 10 64-bit",
-                    "Processor": "Intel Core i5 или AMD Ryzen 5",
-                    "Memory": "8 GB RAM",
-                    "Graphics": "NVIDIA GeForce GTX 660 или AMD Radeon HD 7850",
-                    "Storage": "30 GB свободного места",
-                    "Network": "Интернет-соединение"
-                }
-            },
-            "description": {
-                "overview": "StarCraft II: Legacy of the Void - это эпическое завершение трилогии StarCraft II. Возьмите под контроль протоссов в их последней попытке спасти галактику от древнего зла.",
-                "features": [
-                    "Новая кампания за протоссов",
-                    "Улучшенная система мультиплеера",
-                    "Новые юниты и способности",
-                    "Улучшенный редактор карт",
-                    "Кооперативный режим",
-                    "Система достижений"
-                ]
-            },
             "images": [
-                "images/sc2_legacy.png",
+                "images/sc2_product.jpg",
                 "images/sc2_screenshot1.jpg",
                 "images/sc2_screenshot2.jpg",
                 "images/sc2_screenshot3.jpg"
@@ -125,18 +121,34 @@
         "diablo4": {
             "id": "diablo4",
             "title": "Diablo IV",
-            "price": "30.99",
+            "price": 30.99,
             "tags": ["RPG", "Action RPG", "Dungeon Crawler", "Dark Fantasy"],
             "genres": ["RPG", "Action"],
-            "releaseDate": "6 июня 2023",
+            "releaseDate": "2023-06-06",
             "publisher": "Blizzard Entertainment",
             "developer": "Blizzard Entertainment",
             "languages": {
-                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"],
-                "voice": ["English", "Deutsch", "Español", "Français", "Italiano", "Polski", "日本語", "한국어"]
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-2500K or AMD FX-8100",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 660 or AMD Radeon R9 280",
+                    "storage": "90 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7-8700K or AMD Ryzen 2700X",
+                    "memory": "16 GB RAM",
+                    "graphics": "NVIDIA GeForce RTX 2060 or AMD Radeon RX 5700 XT",
+                    "storage": "90 GB SSD"
+                }
             },
             "description": {
-                "overview": "Diablo IV - это новая глава в легендарной серии Action RPG. Исследуйте огромный открытый мир Санктуарии, сражайтесь с полчищами демонов и собирайте легендарную добычу в бесконечной борьбе между Высшими Небесами и Пылающими Преисподними.",
+                "overview": "Diablo IV - это новая глава в культовой серии, где вы сразитесь с силами тьмы в мрачном мире Санктуария.",
                 "features": [
                     "Огромный открытый мир с динамической погодой и циклом дня и ночи",
                     "Пять уникальных классов: Варвар, Чародейка, Друид, Разбойница и Некромант",
@@ -145,24 +157,6 @@
                     "Кроссплатформенная игра и прогрессия",
                     "Сезонный контент и регулярные обновления"
                 ]
-            },
-            "systemRequirements": {
-                "minimum": {
-                    "OS": "Windows 10 64-bit",
-                    "CPU": "Intel Core i5-2500K или AMD FX-8100",
-                    "RAM": "8 GB",
-                    "GPU": "NVIDIA GeForce GTX 660 или AMD Radeon R9 280",
-                    "DirectX": "Version 12",
-                    "Storage": "90 GB доступного места"
-                },
-                "recommended": {
-                    "OS": "Windows 10 64-bit",
-                    "CPU": "Intel Core i5-4670K или AMD R3-1300X",
-                    "RAM": "16 GB",
-                    "GPU": "NVIDIA GeForce GTX 970 или AMD Radeon RX 470",
-                    "DirectX": "Version 12",
-                    "Storage": "90 GB доступного места SSD"
-                }
             },
             "activation": {
                 "region": "Весь мир",
@@ -187,18 +181,34 @@
         "ow2": {
             "id": "ow2",
             "title": "Overwatch 2",
-            "price": "19.99",
+            "price": 19.99,
             "tags": ["Шутер", "Командная игра", "Герои", "Киберспорт"],
-            "genres": ["Action", "FPS"],
-            "releaseDate": "4 октября 2022",
+            "genres": ["Экшен", "FPS"],
+            "releaseDate": "2022-10-04",
             "publisher": "Blizzard Entertainment",
             "developer": "Blizzard Entertainment",
             "languages": {
-                "interface": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"],
-                "voice": ["Русский", "English", "Deutsch", "Español", "Français", "Italiano", "Polski", "Português", "日本語", "한국어", "中文"]
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i3 or AMD Phenom X3 8650",
+                    "memory": "6 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 600 or AMD Radeon HD 7000",
+                    "storage": "50 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7 or AMD Ryzen 5",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD R9 380",
+                    "storage": "50 GB SSD"
+                }
             },
             "description": {
-                "overview": "Overwatch 2 - это следующая эволюция отмеченного наградами командного шутера от Blizzard Entertainment. Сражайтесь на полях боя будущего в составе команды легендарных героев и станьте частью новой эры конфликта.",
+                "overview": "Overwatch 2 - это командная игра от первого лица с уникальными героями и динамичными сражениями.",
                 "features": [
                     "Новый формат 5 на 5 для более динамичных сражений",
                     "Обновленные герои с новыми способностями и пассивными эффектами",
@@ -207,24 +217,6 @@
                     "Кроссплатформенная игра и общий прогресс",
                     "Регулярные обновления и сезонный контент"
                 ]
-            },
-            "systemRequirements": {
-                "minimum": {
-                    "OS": "Windows 10 64-bit",
-                    "CPU": "Intel Core i3 или AMD Phenom X3 8650",
-                    "RAM": "6 GB",
-                    "GPU": "NVIDIA GeForce GTX 600 series или AMD Radeon HD 7000 series",
-                    "DirectX": "Version 11",
-                    "Storage": "50 GB доступного места"
-                },
-                "recommended": {
-                    "OS": "Windows 10 64-bit",
-                    "CPU": "Intel Core i7 или AMD Ryzen 5",
-                    "RAM": "8 GB",
-                    "GPU": "NVIDIA GeForce GTX 1060 или AMD Radeon R9 380",
-                    "DirectX": "Version 11",
-                    "Storage": "50 GB доступного места SSD"
-                }
             },
             "activation": {
                 "region": "Весь мир",
@@ -244,6 +236,485 @@
                 "images/ow2_screenshot1.jpg",
                 "images/ow2_screenshot2.jpg",
                 "images/ow2_screenshot3.jpg"
+            ]
+        },
+        "warcraft3": {
+            "id": "warcraft3",
+            "title": "Warcraft III: Reforged",
+            "price": 29.99,
+            "tags": ["Стратегия", "RTS"],
+            "genres": ["Стратегия", "RTS"],
+            "releaseDate": "2020-01-28",
+            "publisher": "Blizzard Entertainment",
+            "developer": "Blizzard Entertainment",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 7 64-bit",
+                    "processor": "Intel Core i3-530 or AMD Athlon Phenom II X4 910",
+                    "memory": "4 GB RAM",
+                    "graphics": "NVIDIA GeForce GTS 450 or AMD Radeon HD 5750",
+                    "storage": "30 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-6400 or AMD Ryzen 7 1700",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 960 or AMD Radeon R9 280X",
+                    "storage": "30 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Warcraft III: Reforged - это обновленная версия культовой стратегии с улучшенной графикой и новыми возможностями.",
+                "features": [
+                    "Полностью переработанная графика и анимации",
+                    "Обновленный интерфейс и система управления",
+                    "Новые кат-сцены и озвучка",
+                    "Улучшенный редактор карт",
+                    "Кроссплатформенная игра",
+                    "Совместимость со старыми картами"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Battle.net",
+                "instructions": [
+                    "Скачайте и установите Battle.net с официального сайта",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на иконку Blizzard в верхнем меню",
+                    "Выберите 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Для игры требуется постоянное подключение к интернету"
+            },
+            "images": [
+                "images/warcraft3_product.jpeg",
+                "images/warcraft3_screenshot1.jpeg",
+                "images/warcraft3_screenshot2.jpg",
+                "images/warcraft3_screenshot3.png"
+            ]
+        },
+        "cyberpunk": {
+            "id": "cyberpunk",
+            "title": "Cyberpunk 2077",
+            "price": 59.99,
+            "tags": ["RPG", "Action", "Open World", "Cyberpunk"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "2020-12-10",
+            "publisher": "CD Projekt Red",
+            "developer": "CD Projekt Red",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"],
+                "voice": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-3570K or AMD FX-8310",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 780 or AMD Radeon RX 470",
+                    "storage": "70 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7-4790 or AMD Ryzen 3 3200G",
+                    "memory": "12 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD Radeon RX 590",
+                    "storage": "70 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Cyberpunk 2077 - это приключенческая ролевая игра, действие которой происходит в мегаполисе Найт-Сити, где власть, роскошь и модификации тела ценятся выше всего.",
+                "features": [
+                    "Огромный открытый мир с множеством возможностей",
+                    "Глубокая система кастомизации персонажа",
+                    "Несколько концовок в зависимости от ваших решений",
+                    "Разнообразные боевые стили и тактики",
+                    "Богатый сюжет с множеством побочных квестов",
+                    "Регулярные обновления и дополнения"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "GOG",
+                "instructions": [
+                    "Скачайте и установите GOG Galaxy с официального сайта",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на кнопку 'Добавить игру'",
+                    "Выберите 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через Steam и Epic Games Store"
+            },
+            "images": [
+                "images/cyberpunk_product.jpg",
+                "images/cyberpunk_screenshot1.jpg",
+                "images/cyberpunk_screenshot2.jpg",
+                "images/cyberpunk_screenshot3.jpg"
+            ]
+        },
+        "witcher3": {
+            "id": "witcher3",
+            "title": "The Witcher 3",
+            "price": 39.99,
+            "tags": ["RPG", "Action", "Open World", "Fantasy"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "2015-05-19",
+            "publisher": "CD Projekt Red",
+            "developer": "CD Projekt Red",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"],
+                "voice": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 7 64-bit",
+                    "processor": "Intel Core i5-2500K or AMD Phenom II X4 940",
+                    "memory": "6 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 660 or AMD Radeon HD 7870",
+                    "storage": "35 GB"
+                },
+                "recommended": {
+                    "os": "Windows 7/8/10 64-bit",
+                    "processor": "Intel Core i7 3770 or AMD FX-8350",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 770 or AMD Radeon R9 290",
+                    "storage": "35 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "The Witcher 3: Wild Hunt - это приключенческая ролевая игра, в которой вы играете за профессионального охотника на чудовищ Геральта из Ривии.",
+                "features": [
+                    "Огромный открытый мир с множеством локаций",
+                    "Несколько концовок в зависимости от ваших решений",
+                    "Глубокая система боя и магии",
+                    "Богатый сюжет с множеством побочных квестов",
+                    "Два крупных дополнения",
+                    "Регулярные обновления и улучшения"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "GOG",
+                "instructions": [
+                    "Скачайте и установите GOG Galaxy с официального сайта",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на кнопку 'Добавить игру'",
+                    "Выберите 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через Steam и Epic Games Store"
+            },
+            "images": [
+                "images/witcher3_product.jpg",
+                "images/witcher3_screenshot1.jpg",
+                "images/witcher3_screenshot2.jpg",
+                "images/witcher3_screenshot3.jpg"
+            ]
+        },
+        "rdr2": {
+            "id": "rdr2",
+            "title": "Red Dead Redemption 2",
+            "price": 49.99,
+            "tags": ["Action", "Adventure", "Open World", "Western"],
+            "genres": ["Action", "Adventure"],
+            "releaseDate": "2019-11-05",
+            "publisher": "Rockstar Games",
+            "developer": "Rockstar Games",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Итальянский"],
+                "voice": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Итальянский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-2500K or AMD FX-6300",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 770 or AMD Radeon R9 280",
+                    "storage": "150 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7-4770K or AMD Ryzen 5 1500X",
+                    "memory": "12 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD Radeon RX 480",
+                    "storage": "150 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Red Dead Redemption 2 - это эпическая история о жизни в Америке на рубеже XIX века.",
+                "features": [
+                    "Огромный открытый мир с реалистичной экосистемой",
+                    "Глубокая система взаимодействия с NPC",
+                    "Разнообразные виды деятельности и мини-игры",
+                    "Богатый сюжет с множеством персонажей",
+                    "Режим Red Dead Online",
+                    "Регулярные обновления и события"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Rockstar Games Launcher",
+                "instructions": [
+                    "Скачайте и установите Rockstar Games Launcher",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на кнопку 'Активировать код'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через Epic Games Store"
+            },
+            "images": [
+                "images/rdr2_product.jpeg",
+                "images/rdr2_screenshot1.jpg",
+                "images/rdr2_screenshot2.jpg",
+                "images/rdr2_screenshot3.jpeg"
+            ]
+        },
+        "eldenring": {
+            "id": "eldenring",
+            "title": "Elden Ring",
+            "price": 59.99,
+            "tags": ["RPG", "Action", "Open World", "Souls-like"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "2022-02-25",
+            "publisher": "Bandai Namco",
+            "developer": "FromSoftware",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Японский"],
+                "voice": ["Английский", "Японский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-8400 or AMD Ryzen 3 3300X",
+                    "memory": "12 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD Radeon RX 580",
+                    "storage": "60 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10/11 64-bit",
+                    "processor": "Intel Core i7-8700K or AMD Ryzen 5 3600X",
+                    "memory": "16 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1070 or AMD Radeon RX Vega 56",
+                    "storage": "60 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Elden Ring - это ролевая игра в жанре action, разработанная FromSoftware в сотрудничестве с Джорджем Р. Р. Мартином.",
+                "features": [
+                    "Огромный открытый мир с множеством секретов",
+                    "Глубокая система боя и магии",
+                    "Разнообразные классы и стили игры",
+                    "Сложные боссы и испытания",
+                    "Мультиплеер с кооперативом и PvP",
+                    "Регулярные обновления и баланс"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Steam",
+                "instructions": [
+                    "Скачайте и установите Steam",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на 'Игры' в верхнем меню",
+                    "Выберите 'Активировать через Steam'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через Epic Games Store"
+            },
+            "images": [
+                "images/eldenring_product.jpg",
+                "images/eldenring_screenshot1.jpg",
+                "images/eldenring_screenshot2.jpg",
+                "images/eldenring_screenshot3.jpeg"
+            ]
+        },
+        "bg3": {
+            "id": "bg3",
+            "title": "Baldur's Gate 3",
+            "price": 59.99,
+            "tags": ["RPG", "Strategy", "Fantasy", "D&D"],
+            "genres": ["RPG", "Strategy"],
+            "releaseDate": "2023-08-03",
+            "publisher": "Larian Studios",
+            "developer": "Larian Studios",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-4690 or AMD FX 4350",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 780 or AMD Radeon R9 280X",
+                    "storage": "150 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i7-4770K or AMD Ryzen 5 1500X",
+                    "memory": "16 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD RX580",
+                    "storage": "150 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Baldur's Gate 3 - это ролевая игра, основанная на правилах Dungeons & Dragons пятой редакции.",
+                "features": [
+                    "Глубокая система персонажей и классов",
+                    "Тактические пошаговые сражения",
+                    "Несколько концовок в зависимости от ваших решений",
+                    "Кооперативный мультиплеер до 4 игроков",
+                    "Богатый сюжет с множеством побочных квестов",
+                    "Регулярные обновления и дополнения"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Steam",
+                "instructions": [
+                    "Скачайте и установите Steam",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на 'Игры' в верхнем меню",
+                    "Выберите 'Активировать через Steam'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через GOG"
+            },
+            "images": [
+                "images/bg3_product.jpeg",
+                "images/bg3_screenshot1.jpg",
+                "images/bg3_screenshot2.jpg",
+                "images/bg3_screenshot3.jpg"
+            ]
+        },
+        "starfield": {
+            "id": "starfield",
+            "title": "Starfield",
+            "price": 69.99,
+            "tags": ["RPG", "Action", "Open World", "Sci-Fi"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "2023-09-06",
+            "publisher": "Bethesda Softworks",
+            "developer": "Bethesda Game Studios",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Польский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10/11 64-bit",
+                    "processor": "Intel Core i5-8400 or AMD Ryzen 5 2600X",
+                    "memory": "16 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1070 Ti or AMD Radeon RX 5700",
+                    "storage": "125 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10/11 64-bit",
+                    "processor": "Intel Core i7-9700K or AMD Ryzen 7 3700X",
+                    "memory": "32 GB RAM",
+                    "graphics": "NVIDIA GeForce RTX 2080 or AMD Radeon RX 6800 XT",
+                    "storage": "125 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Starfield - это новая ролевая игра от создателей The Elder Scrolls и Fallout, действие которой происходит в космосе.",
+                "features": [
+                    "Огромный открытый мир с множеством планет",
+                    "Глубокая система кастомизации корабля",
+                    "Разнообразные фракции и сюжетные линии",
+                    "Система крафта и модификаций",
+                    "Богатый сюжет с множеством побочных квестов",
+                    "Регулярные обновления и дополнения"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Steam",
+                "instructions": [
+                    "Скачайте и установите Steam",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на 'Игры' в верхнем меню",
+                    "Выберите 'Активировать через Steam'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через Microsoft Store"
+            },
+            "images": [
+                "images/starfield_product.jpg",
+                "images/starfield_screenshot1.jpg",
+                "images/starfield_screenshot2.jpg",
+                "images/starfield_screenshot3.jpg"
+            ]
+        },
+        "poe2": {
+            "id": "poe2",
+            "title": "Path of Exile 2",
+            "price": 39.99,
+            "tags": ["RPG", "Action", "ARPG", "Dark Fantasy"],
+            "genres": ["RPG", "Action"],
+            "releaseDate": "2024-06-07",
+            "publisher": "Grinding Gear Games",
+            "developer": "Grinding Gear Games",
+            "languages": {
+                "interface": ["Русский", "Английский", "Французский", "Немецкий", "Испанский", "Португальский", "Корейский"],
+                "voice": ["Английский"]
+            },
+            "systemRequirements": {
+                "minimum": {
+                    "os": "Windows 10 64-bit",
+                    "processor": "Intel Core i5-2500K or AMD FX-6300",
+                    "memory": "8 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 660 or AMD Radeon HD 7870",
+                    "storage": "60 GB"
+                },
+                "recommended": {
+                    "os": "Windows 10/11 64-bit",
+                    "processor": "Intel Core i7-4770K or AMD Ryzen 5 1500X",
+                    "memory": "16 GB RAM",
+                    "graphics": "NVIDIA GeForce GTX 1060 or AMD Radeon RX 580",
+                    "storage": "60 GB SSD"
+                }
+            },
+            "description": {
+                "overview": "Path of Exile 2 - это продолжение культовой ARPG с глубокой системой развития персонажа и бесконечными возможностями для кастомизации.",
+                "features": [
+                    "12 новых классов с уникальными способностями",
+                    "Улучшенная система скиллов и пассивных умений",
+                    "Новый кампанийный режим с богатым сюжетом",
+                    "Улучшенная графика и анимации",
+                    "Кооперативный режим до 6 игроков",
+                    "Регулярные сезоны и обновления"
+                ]
+            },
+            "activation": {
+                "region": "Весь мир",
+                "service": "Steam",
+                "instructions": [
+                    "Скачайте и установите Steam",
+                    "Создайте аккаунт или войдите в существующий",
+                    "Нажмите на 'Игры' в верхнем меню",
+                    "Выберите 'Активировать через Steam'",
+                    "Введите ваш ключ активации",
+                    "После активации игра появится в вашей библиотеке"
+                ],
+                "note": "Игра также доступна через официальный лаунчер"
+            },
+            "images": [
+                "images/poe2_product.jpg",
+                "images/poe2_screenshot1.jpg",
+                "images/poe2_screenshot2.jpg",
+                "images/poe2_screenshot3.jpg"
             ]
         }
     }

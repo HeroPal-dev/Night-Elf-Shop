@@ -78,20 +78,25 @@ document.querySelectorAll('.currency-option').forEach(option => {
 
         // Обновление цен
         document.querySelectorAll('.price-value').forEach(priceEl => {
-            const originalPrice = parseFloat(priceEl.dataset.originalPrice || priceEl.textContent);
+            // Сохраняем оригинальную цену, если она еще не сохранена
             if (!priceEl.dataset.originalPrice) {
-                priceEl.dataset.originalPrice = originalPrice;
+                priceEl.dataset.originalPrice = priceEl.textContent;
             }
-            const newPrice = (originalPrice * rate).toFixed(2);
-            priceEl.textContent = newPrice;
+            const originalPrice = parseFloat(priceEl.dataset.originalPrice);
+            if (!isNaN(originalPrice)) {
+                const newPrice = (originalPrice * rate).toFixed(2);
+                priceEl.textContent = newPrice;
+            }
         });
 
         // Обновление цен в корзине
         document.querySelectorAll('.basket-item-price').forEach(priceEl => {
             const originalPrice = parseFloat(priceEl.dataset.basePrice);
             const quantity = parseInt(priceEl.dataset.quantity || 1);
-            const newPrice = (originalPrice * rate * quantity).toFixed(2);
-            priceEl.innerHTML = `<span class="currency-symbol">${symbol}</span>${newPrice}`;
+            if (!isNaN(originalPrice)) {
+                const newPrice = (originalPrice * rate * quantity).toFixed(2);
+                priceEl.innerHTML = `<span class="currency-symbol">${symbol}</span>${newPrice}`;
+            }
         });
 
         // Обновление общей суммы в корзине
@@ -102,7 +107,9 @@ document.querySelectorAll('.currency-option').forEach(option => {
             items.forEach(item => {
                 const price = parseFloat(item.dataset.basePrice);
                 const quantity = parseInt(item.dataset.quantity || 1);
-                total += price * quantity;
+                if (!isNaN(price)) {
+                    total += price * quantity;
+                }
             });
             total = (total * rate).toFixed(2);
             summaryTotal.innerHTML = `<span class="currency-symbol">${symbol}</span>${total}`;
@@ -116,6 +123,16 @@ document.querySelectorAll('.currency-option').forEach(option => {
         localStorage.setItem('selectedCurrency', currency);
         localStorage.setItem('selectedSymbol', symbol);
         localStorage.setItem('selectedRate', rate);
+
+        // Генерация события изменения валюты
+        const event = new CustomEvent('currencyChanged', {
+            detail: {
+                currency: currency,
+                symbol: symbol,
+                rate: rate
+            }
+        });
+        document.dispatchEvent(event);
     });
 });
 
@@ -547,6 +564,10 @@ class ProductPage {
     constructor() {
         this.currentImageIndex = 0;
         this.productData = null;
+        this.currentRate = 1;
+        this.currentSymbol = '$';
+        this.loadProductData();
+        this.setupEventListeners();
     }
 
     // инициализация страницы товара
@@ -589,7 +610,7 @@ class ProductPage {
     loadProductInfo() {
         const titleElement = document.querySelector('.product-title');
         const tagsContainer = document.querySelector('.product-tags');
-        const priceElement = document.querySelector('.product-price');
+        const priceElement = document.querySelector('.product-price .price-value');
         const genresElement = document.querySelector('.product-genres');
         const releaseDateElement = document.querySelector('.product-release-date');
         const publisherElement = document.querySelector('.product-publisher');
@@ -612,7 +633,22 @@ class ProductPage {
         }
 
         // заполнение остальной информации
-        if (priceElement) priceElement.textContent = `${this.productData.price}$`;
+        if (priceElement) {
+            // Сохраняем оригинальную цену
+            priceElement.dataset.originalPrice = this.productData.price;
+            const basePrice = parseFloat(this.productData.price);
+            if (!isNaN(basePrice) && !isNaN(this.currentRate)) {
+                const convertedPrice = (basePrice * this.currentRate).toFixed(2);
+                priceElement.textContent = convertedPrice;
+                
+                // Обновляем символ валюты
+                const symbolElement = document.querySelector('.product-price .currency-symbol');
+                if (symbolElement) {
+                    symbolElement.textContent = this.currentSymbol;
+                    symbolElement.style.opacity = '1';
+                }
+            }
+        }
         if (genresElement) genresElement.textContent = this.productData.genres.join(', ');
         if (releaseDateElement) releaseDateElement.textContent = this.productData.releaseDate;
         if (publisherElement) publisherElement.textContent = this.productData.publisher;
@@ -824,6 +860,54 @@ class ProductPage {
                     addToCartBtn.classList.remove('clicked');
                 }, 1000);
             });
+        }
+    }
+
+    setupEventListeners() {
+        // Обработчик изменения валюты
+        document.addEventListener('currencyChanged', (e) => {
+            const rate = parseFloat(e.detail.rate);
+            if (!isNaN(rate)) {
+                this.currentRate = rate;
+                this.currentSymbol = e.detail.symbol;
+                this.updatePrice();
+            }
+        });
+
+        // Загрузка сохраненной валюты
+        const savedCurrency = localStorage.getItem('selectedCurrency');
+        const savedSymbol = localStorage.getItem('selectedSymbol');
+        const savedRate = localStorage.getItem('selectedRate');
+
+        if (savedCurrency && savedSymbol && savedRate) {
+            const rate = parseFloat(savedRate);
+            if (!isNaN(rate)) {
+                this.currentRate = rate;
+                this.currentSymbol = savedSymbol;
+                this.updatePrice();
+            }
+        }
+    }
+
+    updatePrice() {
+        const priceElement = document.querySelector('.product-price .price-value');
+        if (priceElement && this.productData) {
+            // Сохраняем оригинальную цену, если она еще не сохранена
+            if (!priceElement.dataset.originalPrice) {
+                priceElement.dataset.originalPrice = this.productData.price;
+            }
+            const basePrice = parseFloat(priceElement.dataset.originalPrice);
+            if (!isNaN(basePrice) && !isNaN(this.currentRate)) {
+                const convertedPrice = (basePrice * this.currentRate).toFixed(2);
+                priceElement.textContent = convertedPrice;
+                
+                // Обновляем символ валюты
+                const symbolElement = document.querySelector('.product-price .currency-symbol');
+                if (symbolElement) {
+                    symbolElement.textContent = this.currentSymbol;
+                    symbolElement.style.opacity = '1';
+                }
+            }
         }
     }
 }

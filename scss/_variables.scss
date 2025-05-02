@@ -1,0 +1,68 @@
+// Цвета
+$primary-color: #146AC6;
+$secondary-color: #263856;
+$text-color: #fff;
+$background-color: #000;
+$border-color: rgba(20, 106, 198, 0.2);
+$error-color: #ff4444;
+$success-color: #4CAF50;
+
+// Градиенты
+$gradient: linear-gradient(142deg, $secondary-color 22.75%, $primary-color 77.44%);
+
+// Тени
+$shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+$shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3);
+$shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+// Размеры шрифтов
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+$font-size-3xl: 42px;
+$font-size-4xl: 48px;
+$font-size-5xl: 64px;
+
+// Отступы
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 15px;
+$spacing-lg: 20px;
+$spacing-xl: 30px;
+$spacing-2xl: 40px;
+
+// Брейкпоинты
+$breakpoint-sm: 465px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// Анимации
+$transition-fast: 0.3s;
+$transition-normal: 0.5s;
+$transition-slow: 0.8s;
+
+// Фоны
+$background-dark: #131214;
+$background-darker: #1A1B1F;
+
+// Границы
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 15px;
+$border-radius-xl: 20px;
+$border-radius-full: 50%;
+
+// Z-индексы
+$z-index-dropdown: 1000;
+$z-index-modal: 1001;
+$z-index-tooltip: 1002;
+
+// Размеры компонентов
+$header-height: 60px;
+$footer-height: 200px;
+$product-card-height: 400px;
+$gallery-height: 600px; 
