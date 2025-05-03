@@ -159,6 +159,25 @@
         </div>
     </footer>
 
+    <!-- Модальное окно оформления заказа -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h2 class="modal-title">Оформление заказа</h2>
+            <p class="modal-text">На вашу почту придёт письмо с индивидуальной инструкцией оплаты заказа</p>
+            
+            <form class="modal-form">
+                <input type="email" class="modal-input" placeholder="Введите ваш email" required>
+                <button type="submit" class="modal-button">Отправить</button>
+            </form>
+
+            <div class="modal-success">
+                <div class="success-icon"></div>
+                <p class="success-text">Письмо отправлено!</p>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html> 

@@ -1,0 +1,167 @@
+// Импорт переменных и миксинов
+@import 'variables';
+@import 'mixins';
+
+// Модальное окно
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($background-color, 0.8);
+    display: none;
+    @include flex-center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &.active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.modal {
+    background: $background-darker;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    border: 1px solid $border-color;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+    .modal-overlay.active & {
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.3s;
+    opacity: 0.7;
+
+    &:hover {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+}
+
+.modal-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal-text {
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgba($text-color, 0.8);
+    line-height: 1.6;
+}
+
+.modal-form {
+    @include flex-column;
+    gap: 20px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba($background-color, 0.5);
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    color: $text-color;
+    font-size: 16px;
+    transition: 0.3s;
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    }
+
+    &.error {
+        border-color: $error-color;
+        animation: shake 0.5s ease;
+    }
+}
+
+.modal-button {
+    background: $gradient;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.3s;
+    
+    &:hover {
+        background: linear-gradient(142deg, darken($secondary-color, 10%) 22.75%, darken($primary-color, 10%) 77.44%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+}
+
+.modal-success {
+    @include flex-center;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.3s;
+    pointer-events: none;
+
+    &.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $success-color;
+    @include flex-center;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 30px;
+        height: 15px;
+        border-left: 3px solid $text-color;
+        border-bottom: 3px solid $text-color;
+        transform: rotate(-45deg) translate(-2px, 2px);
+    }
+}
+
+.success-text {
+    font-size: 18px;
+    color: $success-color;
+    text-align: center;
+}
+
+// Анимации
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+} 

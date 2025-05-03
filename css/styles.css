@@ -22,13 +22,6 @@ body {
   font-display: swap;
 }
 @font-face {
-  font-family: "TT-Milks";
-  src: url("/fonts/TTMilksScript-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: "Rye";
   src: url("/fonts/Rye-Regular.ttf") format("truetype");
   font-weight: normal;

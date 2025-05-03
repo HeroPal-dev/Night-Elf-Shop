@@ -240,6 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cart = new ShoppingCart();
     }
     
+    // инициализация модального окна корзины
+    if (document.querySelector('.modal-overlay')) {
+        const modalCart = new Modal_cart();
+    }
+    
     // инициализация фильтра товаров
     new ProductFilter();
     
@@ -255,8 +260,8 @@ class ShoppingCart {
     constructor() {
         // инициализация состояния корзины
         this.items = JSON.parse(localStorage.getItem('cartItems')) || [];
-        this.currentRate = parseFloat(localStorage.getItem('currentRate')) || 1;
-        this.currentSymbol = localStorage.getItem('currentSymbol') || '$';
+        this.currentRate = parseFloat(localStorage.getItem('selectedRate')) || 1;
+        this.currentSymbol = localStorage.getItem('selectedSymbol') || '$';
         this.init();
     }
 
@@ -335,6 +340,19 @@ class ShoppingCart {
             this.currentSymbol = e.detail.symbol;
             this.updatePrices();
         });
+
+        // обработчик для кнопки оформления заказа
+        const checkoutButton = document.querySelector('.checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => {
+                if (this.items.length > 0) {
+                    const modalCart = new Modal_cart();
+                    modalCart.openModal();
+                } else {
+                    this.showNotification('Корзина пуста');
+                }
+            });
+        }
     }
 
     // показ уведомления
@@ -527,6 +545,14 @@ class ShoppingCart {
     // сохранение состояния корзины в localStorage
     saveToLocalStorage() {
         localStorage.setItem('cartItems', JSON.stringify(this.items));
+    }
+
+    // очистка корзины
+    clearCart() {
+        this.items = [];
+        this.saveToLocalStorage();
+        this.renderCart();
+        this.updateCartCount();
     }
 }
 
@@ -948,5 +974,84 @@ class ProductFilter {
                 product.style.display = 'none';
             }
         });
+    }
+}
+
+class Modal_cart {
+    constructor() {
+        this.modal = document.querySelector('.modal-overlay');
+        this.form = document.querySelector('.modal-form');
+        this.successMessage = document.querySelector('.modal-success');
+        this.closeButton = document.querySelector('.modal-close');
+        this.emailInput = document.querySelector('.modal-input');
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        // Обработчик отправки формы
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (this.validateEmail()) {
+                this.showSuccess();
+                // Очищаем корзину после успешного оформления
+                cart.clearCart();
+            }
+        });
+
+        // Обработчик закрытия модального окна
+        this.closeButton.addEventListener('click', () => {
+            this.closeModal();
+        });
+
+        // Закрытие модального окна при клике вне его
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) {
+                this.closeModal();
+            }
+        });
+
+        // Валидация email при вводе
+        this.emailInput.addEventListener('input', () => {
+            this.emailInput.classList.remove('error');
+        });
+    }
+
+    validateEmail() {
+        const email = this.emailInput.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailRegex.test(email)) {
+            this.emailInput.classList.add('error');
+            return false;
+        }
+        return true;
+    }
+
+    showSuccess() {
+        this.form.style.display = 'none';
+        this.successMessage.classList.add('active');
+        
+        // Через 2 секунды закрываем модальное окно
+        setTimeout(() => {
+            this.closeModal();
+        }, 2000);
+    }
+
+    closeModal() {
+        this.modal.classList.remove('active');
+        // Сбрасываем форму
+        this.form.style.display = 'flex';
+        this.successMessage.classList.remove('active');
+        this.emailInput.value = '';
+        this.emailInput.classList.remove('error');
+    }
+
+    openModal() {
+        this.modal.classList.add('active');
     }
 } 
