@@ -164,4 +164,182 @@
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
+}
+
+// Модальное окно профиля
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($background-color, 0.8);
+    display: none;
+    @include flex-center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &.active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.profile-modal-content {
+    background: $background-darker;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    border: 1px solid $border-color;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+    .profile-modal.active & {
+        transform: translateY(0);
+    }
+}
+
+.profile-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.3s;
+    opacity: 0.7;
+
+    &:hover {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+}
+
+.profile-form {
+    @include flex-column;
+    gap: 20px;
+}
+
+.profile-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba($background-color, 0.5);
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    color: $text-color;
+    font-size: 16px;
+    transition: 0.3s;
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    }
+
+    &.error {
+        border-color: $error-color;
+        animation: shake 0.5s ease;
+    }
+}
+
+.profile-button {
+    background: $gradient;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.3s;
+    
+    &:hover {
+        background: linear-gradient(142deg, darken($secondary-color, 10%) 22.75%, darken($primary-color, 10%) 77.44%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+}
+
+.profile-error {
+    color: $error-color;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba($text-color, 0.7);
+    
+    button {
+        background: none;
+        border: none;
+        color: $primary-color;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+        
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+// Меню выхода
+.logout-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: $background-darker;
+    border-radius: 10px;
+    border: 1px solid $border-color;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    min-width: 120px;
+    padding: 8px;
+}
+
+.logout-button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: 0.3s;
+    text-align: left;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+        background: rgba($error-color, 0.1);
+        color: $error-color;
+    }
+}
+
+// Стиль для иконки пользователя при авторизации
+.user-icon.logged-in {
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        width: 10px;
+        height: 10px;
+        background: $success-color;
+        border-radius: 50%;
+        border: 2px solid $background-darker;
+        display: block;
+    }
 } 

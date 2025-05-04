@@ -1,26 +1,3 @@
-// Обработчики для мобильного меню
-document.addEventListener('DOMContentLoaded', () => {
-    const burgerMenu = document.querySelector('.burger-menu');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    if (burgerMenu && mobileMenu) {
-        // Обработчик клика по бургер-меню
-        burgerMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-            burgerMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Закрытие мобильного меню при клике вне его
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
-                burgerMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    }
-});
-
 // Обработчики для выбора валюты
 const desktopCurrencyBtn = document.getElementById('currencyBtn');
 const mobileCurrencyBtn = document.getElementById('mobileCurrencyBtn');
@@ -233,21 +210,184 @@ document.querySelectorAll('.price-value').forEach(price => {
 // Инициализация корзины
 let cart;
 
-// Инициализация компонентов при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
+// === ONLINE STATUS & LOGOUT MENU ===
+
+// Проверка статуса при загрузке
+window.addEventListener('DOMContentLoaded', function() {
     // инициализация корзины
     if (!cart) {
         cart = new ShoppingCart();
     }
-    
     // инициализация модального окна корзины
     if (document.querySelector('.modal-overlay')) {
         const modalCart = new Modal_cart();
     }
-    
+    // инициализация профиля пользователя
+    window.userProfile = new UserProfile();
+    // Проверяем статус
+    const userIcon = document.querySelector('.user-icon');
+    const currentUser = window.userProfile.getCurrentUser && window.userProfile.getCurrentUser();
+    if (userIcon) {
+        if (currentUser) {
+            userIcon.classList.add('logged-in');
+        } else {
+            userIcon.classList.remove('logged-in');
+        }
+    }
+
+    // Инициализация бургер-меню
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileProfile = document.querySelector('.mobile-profile');
+    const profileLink = document.querySelector('.profile-link');
+    const mobileProfileInfo = document.querySelector('.mobile-profile-info');
+    const mobileUsername = document.querySelector('.mobile-username');
+    const mobileLogout = document.querySelector('.mobile-logout');
+    const shopName = document.querySelector('.shop-name');
+
+    // Обработчик для бургер-меню
+    if (burgerMenu && mobileMenu) {
+        burgerMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+            burgerMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
+                burgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Обработчик для мобильного профиля
+    if (mobileProfile) {
+        // Обработчик клика по ссылке профиля
+        if (profileLink) {
+            profileLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentUser = window.userProfile.getCurrentUser();
+                if (!currentUser) {
+                    window.userProfile.openModal();
+                    if (burgerMenu) burgerMenu.classList.remove('active');
+                    if (mobileMenu) mobileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Обработчик клика по блоку профиля
+        mobileProfile.addEventListener('click', (e) => {
+            const currentUser = window.userProfile.getCurrentUser();
+            if (currentUser) {
+                // Если клик был по кнопке выхода, не делаем ничего
+                if (e.target.closest('.mobile-logout')) return;
+                
+                // Создаем меню выхода
+                const logoutMenu = document.createElement('div');
+                logoutMenu.className = 'logout-menu';
+                const logoutBtn = document.createElement('button');
+                logoutBtn.className = 'logout-button';
+                logoutBtn.textContent = 'Выйти';
+                logoutBtn.onclick = () => {
+                    window.userProfile.logout();
+                    updateProfileDisplay();
+                    logoutMenu.remove();
+                };
+                logoutMenu.appendChild(logoutBtn);
+                
+                // Удаляем старое меню, если оно есть
+                const existingMenu = document.querySelector('.logout-menu');
+                if (existingMenu) {
+                    existingMenu.remove();
+                }
+                
+                // Добавляем новое меню
+                mobileProfile.appendChild(logoutMenu);
+                
+                // Закрываем меню при клике вне его
+                document.addEventListener('click', function closeMenu(e) {
+                    if (!mobileProfile.contains(e.target)) {
+                        logoutMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            }
+        });
+
+        // Обработчик кнопки выхода
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', () => {
+                window.userProfile.logout();
+                updateProfileDisplay();
+            });
+        }
+
+        // Функция обновления отображения профиля
+        function updateProfileDisplay() {
+            const currentUser = window.userProfile.getCurrentUser();
+            if (currentUser) {
+                if (profileLink) profileLink.style.display = 'none';
+                if (mobileProfileInfo) mobileProfileInfo.style.display = 'flex';
+                if (mobileUsername) mobileUsername.textContent = currentUser.username;
+                if (shopName) shopName.textContent = currentUser.username;
+                if (userIcon) userIcon.classList.add('logged-in');
+            } else {
+                if (profileLink) profileLink.style.display = 'block';
+                if (mobileProfileInfo) mobileProfileInfo.style.display = 'none';
+                if (mobileUsername) mobileUsername.textContent = 'Night Elf Shop';
+                if (shopName) shopName.textContent = 'Night Elf Shop';
+                if (userIcon) userIcon.classList.remove('logged-in');
+            }
+        }
+
+        // Инициализация отображения профиля
+        updateProfileDisplay();
+    }
+
+    // Обработчик для иконки пользователя
+    if (userIcon) {
+        userIcon.addEventListener('click', (e) => {
+            const currentUser = window.userProfile.getCurrentUser();
+            if (!currentUser) {
+                window.userProfile.openModal();
+            } else {
+                // Создаем меню выхода
+                const logoutMenu = document.createElement('div');
+                logoutMenu.className = 'logout-menu';
+                const logoutBtn = document.createElement('button');
+                logoutBtn.className = 'logout-button';
+                logoutBtn.textContent = 'Выйти';
+                logoutBtn.onclick = () => {
+                    window.userProfile.logout();
+                    updateProfileDisplay();
+                    logoutMenu.remove();
+                };
+                logoutMenu.appendChild(logoutBtn);
+                
+                // Удаляем старое меню, если оно есть
+                const existingMenu = document.querySelector('.logout-menu');
+                if (existingMenu) {
+                    existingMenu.remove();
+                }
+                
+                // Добавляем новое меню
+                userIcon.appendChild(logoutMenu);
+                
+                // Закрываем меню при клике вне его
+                document.addEventListener('click', function closeMenu(e) {
+                    if (!userIcon.contains(e.target)) {
+                        logoutMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            }
+        });
+    }
+
     // инициализация фильтра товаров
     new ProductFilter();
-    
     // инициализация страницы товара, если она существует
     if (document.querySelector('.product-page')) {
         const productPage = new ProductPage();
@@ -404,6 +544,12 @@ class ShoppingCart {
         // сохранение состояния корзины
         this.saveToLocalStorage();
         
+        // Сохраняем корзину в куки пользователя
+        if (window.userProfile) {
+            console.log('АУ КУКИ ТЫ ТУТ?');
+            window.userProfile.saveUserCart();
+        }
+        
         // обновление отображения
         this.renderCart();
         this.updateCartCount();
@@ -416,6 +562,12 @@ class ShoppingCart {
     removeItem(productId) {
         this.items = this.items.filter(item => item.id !== productId);
         this.saveToLocalStorage();
+        
+        // Сохраняем корзину в куки пользователя
+        if (window.userProfile) {
+            window.userProfile.saveUserCart();
+        }
+        
         this.updateCartCount();
         this.renderCart();
     }
@@ -429,6 +581,12 @@ class ShoppingCart {
             } else {
                 item.quantity = newQuantity;
                 this.saveToLocalStorage();
+                
+                // Сохраняем корзину в куки пользователя
+                if (window.userProfile) {
+                    window.userProfile.saveUserCart();
+                }
+                
                 this.renderCart();
             }
         }
@@ -1000,6 +1158,9 @@ class Modal_cart {
                 this.showSuccess();
                 // Очищаем корзину после успешного оформления
                 cart.clearCart();
+                if(window.userProfile){
+                    window.userProfile.saveUserCart();
+                }
             }
         });
 
@@ -1052,6 +1213,391 @@ class Modal_cart {
     }
 
     openModal() {
-        this.modal.classList.add('active');
+        console.log('Открытие модального окна');
+        console.log('Модальное окно:', this.modal);
+        console.log('Форма входа:', this.loginForm);
+        console.log('Форма регистрации:', this.registerForm);
+        
+        if (this.modal) {
+            this.modal.classList.add('active');
+            if (this.loginForm) {
+                this.loginForm.style.display = 'flex';
+            }
+            if (this.registerForm) {
+                this.registerForm.style.display = 'none';
+            }
+        } else {
+            console.error('Модальное окно не найдено');
+        }
+    }
+}
+
+class UserProfile {
+    constructor() {
+        this.modal = document.querySelector('.profile-modal');
+        this.loginForm = document.querySelector('.login-form');
+        this.registerForm = document.querySelector('.register-form');
+        this.switchToLogin = document.querySelector('.switch-to-login-btn');
+        this.switchToRegister = document.querySelector('.switch-to-register-btn');
+        this.closeButton = document.querySelector('.profile-modal-close');
+        this.shopName = document.querySelector('.shop-name');
+        this.userIcon = document.querySelector('.user-icon');
+        
+        // Проверяем наличие необходимых элементов
+        if (!this.modal || !this.loginForm || !this.registerForm || !this.shopName || !this.userIcon) {
+            console.error('Не все необходимые элементы найдены для инициализации UserProfile');
+            return;
+        }
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.checkAuth();
+        this.setupMobileEventListeners();
+    }
+
+    setupEventListeners() {
+        // Переключение между формами
+        if (this.switchToLogin) {
+            this.switchToLogin.addEventListener('click', () => {
+                console.log('Переключение на форму входа');
+                this.loginForm.style.display = 'flex';
+                this.registerForm.style.display = 'none';
+            });
+        }
+
+        if (this.switchToRegister) {
+            this.switchToRegister.addEventListener('click', () => {
+                console.log('Переключение на форму регистрации');
+                this.loginForm.style.display = 'none';
+                this.registerForm.style.display = 'flex';
+            });
+        }
+
+        // Обработка форм
+        if (this.loginForm) {
+            this.loginForm.addEventListener('submit', (e) => {
+                console.log('Отправка формы входа');
+                e.preventDefault();
+                this.handleLogin();
+            });
+        }
+
+        if (this.registerForm) {
+            this.registerForm.addEventListener('submit', (e) => {
+                console.log('Отправка формы регистрации');
+                e.preventDefault();
+                this.handleRegister();
+            });
+        }
+
+        // Закрытие модального окна
+        if (this.closeButton) {
+            this.closeButton.addEventListener('click', () => {
+                console.log('Закрытие модального окна');
+                this.closeModal();
+            });
+        }
+
+        // Закрытие по клику вне окна
+        if (this.modal) {
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) {
+                    console.log('Закрытие модального окна по клику вне его');
+                    this.closeModal();
+                }
+            });
+        }
+    }
+
+    handleLogin() {
+        const email = this.loginForm.querySelector('input[type="email"]').value;
+        const password = this.loginForm.querySelector('input[type="password"]').value;
+
+        // Получаем всех пользователей из куки
+        const users = this.getUsersFromCookie();
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            this.loginUser(user);
+        } else {
+            this.showError('Неверный email или пароль');
+        }
+    }
+
+    handleRegister() {
+        console.log('Начало регистрации');
+        
+        const username = this.registerForm.querySelector('.profile-input[type="text"]').value;
+        const email = this.registerForm.querySelector('.profile-input[type="email"]').value;
+        const password = this.registerForm.querySelector('.profile-input[type="password"]').value;
+        const confirmPassword = this.registerForm.querySelectorAll('.profile-input[type="password"]')[1].value;
+
+        console.log('Полученные данные:', { username, email, password, confirmPassword });
+
+        if (password !== confirmPassword) {
+            console.log('Пароли не совпадают');
+            this.showError('Пароли не совпадают');
+            return;
+        }
+
+        // Получаем всех пользователей из куки
+        const users = this.getUsersFromCookie();
+        console.log('Текущие пользователи:', users);
+        
+        // Проверяем, не занят ли email
+        if (users.some(u => u.email === email)) {
+            console.log('Email уже занят');
+            this.showError('Этот email уже зарегистрирован');
+            return;
+        }
+
+        // Создаем нового пользователя
+        const newUser = {
+            username,
+            email,
+            password,
+            cart: []
+        };
+
+        console.log('Создан новый пользователь:', newUser);
+
+        // Добавляем пользователя в список
+        users.push(newUser);
+        this.saveUsersToCookie(users);
+        console.log('Пользователь сохранен в куки');
+
+        // Авторизуем пользователя
+        this.loginUser(newUser);
+        console.log('Пользователь авторизован');
+    }
+
+    loginUser(user) {
+        if (this.userIcon) {
+            this.userIcon.classList.add('logged-in');
+        }
+        // Сохраняем текущего пользователя в куки
+        document.cookie = `currentUser=${JSON.stringify(user)}; path=/; max-age=2592000`; // 30 дней
+        
+        // Обновляем интерфейс
+        this.shopName.textContent = user.username;
+        if (this.userIcon) {
+            this.userIcon.classList.add('logged-in');
+        }
+        
+        // Закрываем модальные окна
+        this.closeModal();
+        this.closeMobileModal();
+        
+        // Загружаем корзину пользователя
+        this.loadUserCart();
+        
+        // Обновляем отображение мобильного профиля
+        this.updateMobileProfileDisplay();
+    }
+
+    logout() {
+        if (this.userIcon) {
+            this.userIcon.classList.remove('logged-in');
+        }
+        // Сохраняем текущую корзину в профиль пользователя
+        this.saveUserCart();
+        
+        // Удаляем куки текущего пользователя
+        document.cookie = 'currentUser=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        
+        // Обновляем интерфейс
+        this.shopName.textContent = 'Night Elf Shop';
+        if (this.userIcon) {
+            this.userIcon.classList.remove('logged-in');
+        }
+        
+        // Очищаем корзину
+        cart.clearCart();
+        
+        // Обновляем отображение мобильного профиля
+        this.updateMobileProfileDisplay();
+    }
+
+    checkAuth() {
+        const currentUser = this.getCurrentUser();
+        if (currentUser) {
+            this.shopName.textContent = currentUser.username;
+            if (this.userIcon) {
+                this.userIcon.classList.add('logged-in');
+            }
+            this.loadUserCart();
+        }
+    }
+
+    getCurrentUser() {
+        const cookies = document.cookie.split(';');
+        const currentUserCookie = cookies.find(c => c.trim().startsWith('currentUser='));
+        if (currentUserCookie) {
+            return JSON.parse(decodeURIComponent(currentUserCookie.split('=')[1]));
+        }
+        return null;
+    }
+
+    getUsersFromCookie() {
+        const cookies = document.cookie.split(';');
+        const usersCookie = cookies.find(c => c.trim().startsWith('users='));
+        if (usersCookie) {
+            return JSON.parse(decodeURIComponent(usersCookie.split('=')[1]));
+        }
+        return [];
+    }
+
+    saveUsersToCookie(users) {
+        document.cookie = `users=${JSON.stringify(users)}; path=/; max-age=2592000`; // 30 дней
+    }
+
+    saveUserCart() {
+        const currentUser = this.getCurrentUser();
+        if (currentUser) {
+            // Обновляем корзину текущего пользователя
+            currentUser.cart = cart.items;
+            
+            // Получаем всех пользователей
+            const users = this.getUsersFromCookie();
+            
+            // Находим индекс текущего пользователя по email
+            const userIndex = users.findIndex(u => u.email === currentUser.email);
+            
+            if (userIndex !== -1) {
+                // Обновляем пользователя в массиве
+                users[userIndex] = currentUser;
+                
+                // Сохраняем обновленный массив пользователей
+                this.saveUsersToCookie(users);
+                
+                // Обновляем куки текущего пользователя
+                document.cookie = `currentUser=${JSON.stringify(currentUser)}; path=/; max-age=2592000`;
+            }
+        }
+    }
+
+    loadUserCart() {
+        const currentUser = this.getCurrentUser();
+        if (currentUser && currentUser.cart) {
+            cart.items = currentUser.cart;
+            cart.saveToLocalStorage();
+            cart.renderCart();
+            cart.updateCartCount();
+        }
+    }
+
+    showError(message) {
+        const errorElement = document.querySelector('.profile-error');
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 3000);
+        }
+    }
+
+    openModal() {
+        console.log('Открытие модального окна');
+        console.log('Модальное окно:', this.modal);
+        console.log('Форма входа:', this.loginForm);
+        console.log('Форма регистрации:', this.registerForm);
+        
+        if (this.modal) {
+            this.modal.classList.add('active');
+            if (this.loginForm) {
+                this.loginForm.style.display = 'flex';
+            }
+            if (this.registerForm) {
+                this.registerForm.style.display = 'none';
+            }
+        } else {
+            console.error('Модальное окно не найдено');
+        }
+    }
+
+    closeModal() {
+        this.modal.classList.remove('active');
+        this.loginForm.reset();
+        this.registerForm.reset();
+    }
+
+    setupMobileEventListeners() {
+        // Обработчик для ссылки профиля в мобильном меню
+        const mobileProfileLink = document.querySelector('.mobile-profile-link');
+        const mobileProfileInfo = document.querySelector('.mobile-profile-info');
+        const mobileUsername = document.querySelector('.mobile-username');
+        const mobileLogout = document.querySelector('.mobile-logout');
+
+        if (mobileProfileLink) {
+            mobileProfileLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentUser = this.getCurrentUser();
+                if (!currentUser) {
+                    this.openMobileModal();
+                }
+            });
+        }
+
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', () => {
+                this.logout();
+                this.updateMobileProfileDisplay();
+            });
+        }
+
+        // Инициализация отображения мобильного профиля
+        this.updateMobileProfileDisplay();
+    }
+
+    updateMobileProfileDisplay() {
+        const currentUser = this.getCurrentUser();
+        const mobileProfileLink = document.querySelector('.mobile-profile-link');
+        const mobileProfileInfo = document.querySelector('.mobile-profile-info');
+        const mobileUsername = document.querySelector('.mobile-username');
+
+        if (currentUser) {
+            if (mobileProfileLink) mobileProfileLink.style.display = 'none';
+            if (mobileProfileInfo) {
+                mobileProfileInfo.classList.add('active');
+                mobileProfileInfo.style.display = 'flex';
+            }
+            if (mobileUsername) mobileUsername.textContent = currentUser.username;
+        } else {
+            if (mobileProfileLink) mobileProfileLink.style.display = 'block';
+            if (mobileProfileInfo) {
+                mobileProfileInfo.classList.remove('active');
+                mobileProfileInfo.style.display = 'none';
+            }
+            if (mobileUsername) mobileUsername.textContent = '';
+        }
+    }
+
+    openMobileModal() {
+        console.log('Открытие мобильного модального окна');
+        console.log('Модальное окно:', this.modal);
+        console.log('Форма входа:', this.loginForm);
+        console.log('Форма регистрации:', this.registerForm);
+        
+        if (this.modal) {
+            this.modal.classList.add('active');
+            if (this.loginForm) {
+                this.loginForm.style.display = 'flex';
+            }
+            if (this.registerForm) {
+                this.registerForm.style.display = 'none';
+            }
+        } else {
+            console.error('Модальное окно не найдено');
+        }
+    }
+
+    closeMobileModal() {
+        this.modal.classList.remove('active');
+        this.loginForm.reset();
+        this.registerForm.reset();
     }
 } 

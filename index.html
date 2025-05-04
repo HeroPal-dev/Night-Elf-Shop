@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <!-- Бургер-меню -->
@@ -28,7 +29,15 @@
         <nav class="mobile-menu-nav">
             <a href="#catalog">Каталог</a>
             <a href="basket.html">Корзина</a>
-            <a href="#">Профиль</a>
+            <div class="mobile-profile">
+                <a href="#" class="mobile-profile-link">Профиль</a>
+                <div class="mobile-profile-info">
+                    <span class="mobile-username"></span>
+                    <button class="mobile-logout">
+                        <img src="images/logout.svg" alt="Выйти" class="logout-icon">
+                    </button>
+                </div>
+            </div>
         </nav>
         <div class="mobile-currency-selector">
             <div class="currency-selector">
@@ -88,7 +97,7 @@
                 </div>
 
                 <div class="user-section">
-                    <div class="user-icon">
+                    <div class="user-icon logged-in">
                         <img src="images/user-icon.svg" alt="User">
                     </div>
                     <span class="shop-name">Night Elf Shop</span>
@@ -329,6 +338,41 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно профиля -->
+    <div class="profile-modal">
+        <div class="profile-modal-content">
+            <button class="profile-modal-close">&times;</button>
+            <h2 class="modal-title">Вход в аккаунт</h2>
+            
+            <!-- Форма входа -->
+            <form class="profile-form login-form">
+                <input type="email" class="profile-input" placeholder="Email" required>
+                <input type="password" class="profile-input" placeholder="Пароль" required>
+                <div class="profile-error"></div>
+                <button type="submit" class="profile-button">Войти</button>
+                <div class="switch-form">
+                    <span>Нет аккаунта?</span>
+                    <button type="button" class="switch-to-register-btn">Зарегистрироваться</button>
+                </div>
+            </form>
+
+            <!-- Форма регистрации -->
+            <form class="profile-form register-form" style="display: none;">
+                <input type="text" class="profile-input" placeholder="Имя пользователя" required>
+                <input type="email" class="profile-input" placeholder="Email" required>
+                <input type="password" class="profile-input" placeholder="Пароль" required>
+                <input type="password" class="profile-input" placeholder="Подтвердите пароль" required>
+                <div class="profile-error"></div>
+                <button type="submit" class="profile-button">Зарегистрироваться</button>
+                <div class="switch-form">
+                    <span>Уже есть аккаунт?</span>
+                    <button type="button" class="switch-to-login-btn">Войти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
