@@ -204,15 +204,12 @@ body {
     top: 20px;
     left: 20px;
     z-index: 1001;
-
     a {
         @include flex-center;
         @include transition(transform);
-
         &:hover {
             transform: translateY(-1px);
         }
-
         img {
             height: 40px;
             width: auto;

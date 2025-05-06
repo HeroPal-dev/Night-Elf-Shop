@@ -179,33 +179,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// функция анимации изменения цены
-const animatePrice = (element) => {
-    const price = parseFloat(element.textContent);
-    let current = 0;
-    const duration = 1000; // длительность анимации в миллисекундах
-    const steps = 60; // количество шагов анимации
-    const increment = price / steps; // величина изменения на каждом шаге
-    const stepTime = duration / steps; // время одного шага
 
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= price) {
-            element.textContent = price.toFixed(2);
-            clearInterval(timer);
-        } else {
-            element.textContent = current.toFixed(2);
-        }
-    }, stepTime);
-};
-
-// добавляем анимацию цен при появлении карточек
-document.querySelectorAll('.price-value').forEach(price => {
-    observer.observe(price);
-    price.addEventListener('animationend', () => {
-        animatePrice(price);
-    });
-});
 
 // Инициализация корзины
 let cart;
@@ -488,35 +462,9 @@ class ShoppingCart {
                 if (this.items.length > 0) {
                     const modalCart = new Modal_cart();
                     modalCart.openModal();
-                } else {
-                    this.showNotification('Корзина пуста');
                 }
             });
         }
-    }
-
-    // показ уведомления
-    showNotification(message) {
-        // создание элемента уведомления
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.textContent = message;
-        
-        // добавление на страницу
-        document.body.appendChild(notification);
-        
-        // анимация появления
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 10);
-        
-        // удаление через 3 секунды
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
     }
 
     // добавление товара в корзину
@@ -546,16 +494,12 @@ class ShoppingCart {
         
         // Сохраняем корзину в куки пользователя
         if (window.userProfile) {
-            console.log('АУ КУКИ ТЫ ТУТ?');
             window.userProfile.saveUserCart();
         }
         
         // обновление отображения
         this.renderCart();
         this.updateCartCount();
-        
-        // показ уведомления
-        this.showNotification('Товар добавлен в корзину');
     }
 
     // удаление товара из корзины
@@ -750,8 +694,6 @@ class ProductPage {
         this.productData = null;
         this.currentRate = 1;
         this.currentSymbol = '$';
-        this.loadProductData();
-        this.setupEventListeners();
     }
 
     // инициализация страницы товара
@@ -763,6 +705,7 @@ class ProductPage {
             return;
         }
         await this.loadProductData(productId);
+        this.setupEventListeners();
         this.setupAddToCartButton();
     }
 
@@ -1213,11 +1156,6 @@ class Modal_cart {
     }
 
     openModal() {
-        console.log('Открытие модального окна');
-        console.log('Модальное окно:', this.modal);
-        console.log('Форма входа:', this.loginForm);
-        console.log('Форма регистрации:', this.registerForm);
-        
         if (this.modal) {
             this.modal.classList.add('active');
             if (this.loginForm) {
@@ -1262,7 +1200,6 @@ class UserProfile {
         // Переключение между формами
         if (this.switchToLogin) {
             this.switchToLogin.addEventListener('click', () => {
-                console.log('Переключение на форму входа');
                 this.loginForm.style.display = 'flex';
                 this.registerForm.style.display = 'none';
             });
@@ -1270,7 +1207,6 @@ class UserProfile {
 
         if (this.switchToRegister) {
             this.switchToRegister.addEventListener('click', () => {
-                console.log('Переключение на форму регистрации');
                 this.loginForm.style.display = 'none';
                 this.registerForm.style.display = 'flex';
             });
@@ -1279,7 +1215,6 @@ class UserProfile {
         // Обработка форм
         if (this.loginForm) {
             this.loginForm.addEventListener('submit', (e) => {
-                console.log('Отправка формы входа');
                 e.preventDefault();
                 this.handleLogin();
             });
@@ -1287,7 +1222,6 @@ class UserProfile {
 
         if (this.registerForm) {
             this.registerForm.addEventListener('submit', (e) => {
-                console.log('Отправка формы регистрации');
                 e.preventDefault();
                 this.handleRegister();
             });
@@ -1296,7 +1230,6 @@ class UserProfile {
         // Закрытие модального окна
         if (this.closeButton) {
             this.closeButton.addEventListener('click', () => {
-                console.log('Закрытие модального окна');
                 this.closeModal();
             });
         }
@@ -1305,7 +1238,6 @@ class UserProfile {
         if (this.modal) {
             this.modal.addEventListener('click', (e) => {
                 if (e.target === this.modal) {
-                    console.log('Закрытие модального окна по клику вне его');
                     this.closeModal();
                 }
             });
@@ -1328,28 +1260,21 @@ class UserProfile {
     }
 
     handleRegister() {
-        console.log('Начало регистрации');
-        
         const username = this.registerForm.querySelector('.profile-input[type="text"]').value;
         const email = this.registerForm.querySelector('.profile-input[type="email"]').value;
         const password = this.registerForm.querySelector('.profile-input[type="password"]').value;
         const confirmPassword = this.registerForm.querySelectorAll('.profile-input[type="password"]')[1].value;
 
-        console.log('Полученные данные:', { username, email, password, confirmPassword });
-
         if (password !== confirmPassword) {
-            console.log('Пароли не совпадают');
             this.showError('Пароли не совпадают');
             return;
         }
 
         // Получаем всех пользователей из куки
         const users = this.getUsersFromCookie();
-        console.log('Текущие пользователи:', users);
         
         // Проверяем, не занят ли email
         if (users.some(u => u.email === email)) {
-            console.log('Email уже занят');
             this.showError('Этот email уже зарегистрирован');
             return;
         }
@@ -1362,16 +1287,12 @@ class UserProfile {
             cart: []
         };
 
-        console.log('Создан новый пользователь:', newUser);
-
         // Добавляем пользователя в список
         users.push(newUser);
         this.saveUsersToCookie(users);
-        console.log('Пользователь сохранен в куки');
 
         // Авторизуем пользователя
         this.loginUser(newUser);
-        console.log('Пользователь авторизован');
     }
 
     loginUser(user) {
@@ -1501,11 +1422,6 @@ class UserProfile {
     }
 
     openModal() {
-        console.log('Открытие модального окна');
-        console.log('Модальное окно:', this.modal);
-        console.log('Форма входа:', this.loginForm);
-        console.log('Форма регистрации:', this.registerForm);
-        
         if (this.modal) {
             this.modal.classList.add('active');
             if (this.loginForm) {
@@ -1521,8 +1437,11 @@ class UserProfile {
 
     closeModal() {
         this.modal.classList.remove('active');
-        this.loginForm.reset();
-        this.registerForm.reset();
+        // Сбрасываем форму
+        this.form.style.display = 'flex';
+        this.successMessage.classList.remove('active');
+        this.emailInput.value = '';
+        this.emailInput.classList.remove('error');
     }
 
     setupMobileEventListeners() {
@@ -1577,11 +1496,6 @@ class UserProfile {
     }
 
     openMobileModal() {
-        console.log('Открытие мобильного модального окна');
-        console.log('Модальное окно:', this.modal);
-        console.log('Форма входа:', this.loginForm);
-        console.log('Форма регистрации:', this.registerForm);
-        
         if (this.modal) {
             this.modal.classList.add('active');
             if (this.loginForm) {
