@@ -5,12 +5,6 @@
     justify-content: center;
 }
 
-@mixin flex-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -19,13 +13,6 @@
 // Анимации
 @mixin transition($property: all, $duration: $transition-normal, $timing: ease) {
     transition: $property $duration $timing;
-}
-
-@mixin hover-effect {
-    &:hover {
-        transform: translateY(-1px);
-        box-shadow: $shadow-md;
-    }
 }
 
 @mixin gradient-button {
@@ -39,93 +26,6 @@
         background: linear-gradient(142deg, darken($secondary-color, 10%) 22.75%, darken($primary-color, 10%) 77.44%);
         transform: translateY(-2px);
         box-shadow: $shadow-md;
-    }
-}
-
-@mixin fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    @include transition(opacity, $transition-normal);
-    @include transition(transform, $transition-normal);
-
-    &.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@mixin bounce {
-    animation: cartBounce 0.5s ease;
-}
-
-@mixin ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba($text-color, 0.3);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-// Медиа-запросы
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == sm {
-        @media (max-width: $breakpoint-sm) { @content; }
-    }
-    @else if $breakpoint == md {
-        @media (max-width: $breakpoint-md) { @content; }
-    }
-    @else if $breakpoint == lg {
-        @media (max-width: $breakpoint-lg) { @content; }
-    }
-    @else if $breakpoint == xl {
-        @media (max-width: $breakpoint-xl) { @content; }
-    }
-}
-
-// Текст
-@mixin text-truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-@mixin text-gradient {
-    background: $gradient;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-// Позиционирование
-@mixin absolute-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-@mixin fixed-full {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-// Сетка
-@mixin grid-auto-fit($min-size: 250px, $gap: $spacing-lg) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($min-size, 1fr));
-    gap: $gap;
-}
-
-// Скрытие скроллбара
-@mixin hide-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-        display: none;
     }
 }
 
@@ -232,12 +132,3 @@
     padding: 0 $spacing-lg;
     pointer-events: none;
 }
-
-@mixin system-requirements {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: $spacing-lg;
-    padding: $spacing-lg;
-    background: rgba($background-darker, 0.5);
-    border-radius: $border-radius-lg;
-} 

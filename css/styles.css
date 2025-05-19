@@ -318,6 +318,13 @@ body {
   border: 1px solid rgba(20, 106, 198, 0.2);
 }
 
+.empty-cart {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+
 .basket-summary {
   position: relative;
   height: 100%;
@@ -1177,18 +1184,6 @@ body {
   pointer-events: none;
 }
 
-.add-to-cart.clicked {
-  transform: translate(-50%, -50%) scale(0.95);
-}
-
-.cart-bounce {
-  animation: cartBounce 0.5s ease;
-}
-
-.basket-item.removing {
-  animation: fadeOut 0.3s ease forwards;
-}
-
 .cart-count {
   position: absolute;
   top: -8px;
@@ -1204,31 +1199,4 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.empty-cart {
-  text-align: center;
-  padding: 40px;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: transform 0.5s ease;
-  transition: box-shadow 0.5s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-}
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-}
-.cta-button:active {
-  transform: translateY(0);
 }/*# sourceMappingURL=styles.css.map */

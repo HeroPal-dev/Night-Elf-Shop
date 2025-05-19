@@ -525,12 +525,10 @@ class ShoppingCart {
             } else {
                 item.quantity = newQuantity;
                 this.saveToLocalStorage();
-                
                 // Сохраняем корзину в куки пользователя
                 if (window.userProfile) {
                     window.userProfile.saveUserCart();
                 }
-                
                 this.renderCart();
             }
         }
@@ -1372,7 +1370,7 @@ class UserProfile {
     }
 
     saveUsersToCookie(users) {
-        document.cookie = `users=${JSON.stringify(users)}; path=/; max-age=2592000`; // 30 дней
+        document.cookie = `users=${JSON.stringify(users)}; path=/; max-age=2592000`;
     }
 
     saveUserCart() {
